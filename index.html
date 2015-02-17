@@ -12,18 +12,13 @@ function toBinary(){
     var aryBin = [];
     for(var i=0;i<input.length;i++){
         var d = input.charCodeAt(i);
-        
         var h = dtoh(d);
         aryBin.push( h );
     }
-    
     $id('viewArea_').innerText = aryBin.join(" ");
-    
-    
 }
 
 function dtoh(d){
-    
     return _dtoh(Math.floor( d / 16 )) + _dtoh(( d % 16 ));
 
     function _dtoh(n){
