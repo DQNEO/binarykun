@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>バイナリ君</title>
+<style>
+ #input { width:300px; }
+</style>
+<script>
+function toBinary(){
+    var input = $id('input').value;
+    var aryBin = [];
+    for(var i=0;i<input.length;i++){
+        var d = input.charCodeAt(i);
+        
+        var h = dtoh(d);
+        aryBin.push( h );
+    }
+    
+    $id('viewArea_').innerText = aryBin.join(" ");
+    
+    
+}
+
+function dtoh(d){
+    
+    return _dtoh(Math.floor( d / 16 )) + _dtoh(( d % 16 ));
+
+    function _dtoh(n){
+        var tbl = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+        return tbl[n] + '';
+    }
+
+}
+
+function $id(s){
+    return document.getElementById(s);
+}
+</script>
+</head>
+<body onload="toBinary()">
+<center>
+<h1>バイナリ君</h1>
+<input type="text" id="input" onkeyup="toBinary()" value="" /><br/>
+<div id="viewArea_" ></div>
+</center>
+</body></html>
